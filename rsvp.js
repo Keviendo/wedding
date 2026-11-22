@@ -16,6 +16,9 @@
     const declining = form.attending.value === "Regretfully declines";
     const data = new FormData(form);
     if (declining) ["guests", "guest_names", "dietary"].forEach((k) => data.delete(k));
+    // Subject line of the notification email Formspree sends to us.
+    const count = declining ? "" : ` (${data.get("guests")})`;
+    data.set("_subject", `RSVP: ${data.get("name")} ${declining ? "declines" : "accepts"}${count}`);
 
     button.disabled = true;
     button.textContent = "Sending…";
@@ -28,14 +31,20 @@
         body: data,
         headers: { Accept: "application/json" },
       });
-      if (!res.ok) throw new Error(res.status);
+      if (!res.ok) {
+        // Formspree explains rejections (e.g. an invalid email) as {errors: [{message}]}.
+        const body = await res.json().catch(() => ({}));
+        throw new Error((body.errors || []).map((err) => err.message).join(" "));
+      }
       form.classList.add("sent");
       status.textContent = declining
         ? "Thank you for letting us know. You'll be missed."
         : "Thank you. We can't wait to celebrate with you.";
-    } catch {
+    } catch (err) {
       status.className = "status error";
-      status.textContent = "Your reply didn't send. Check your connection and try again.";
+      status.textContent = err.message
+        ? `Your reply didn't send: ${err.message}`
+        : "Your reply didn't send. Check your connection and try again.";
       button.disabled = false;
       button.textContent = "Send reply";
     }

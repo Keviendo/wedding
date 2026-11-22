@@ -16,11 +16,9 @@ Then open http://localhost:8124.
 
 ## RSVP (Formspree)
 
-1. Sign up at https://formspree.io and create a form.
-2. Copy its ID (the `xxxxxxx` in `formspree.io/f/xxxxxxx`).
-3. In `index.html`, replace `YOUR_FORM_ID` in the form's `action`.
-4. Each reply is emailed to you and listed in the Formspree dashboard, which can export to CSV.
-   The free plan allows 50 submissions a month.
+The form posts to `https://formspree.io/f/mkjrqoba`. Responses are at https://formspree.io/forms/mkjrqoba,
+which can export to CSV. Each reply is also emailed to you with a subject like
+"RSVP: Jane Doe accepts (2)". The free plan allows 50 submissions a month.
 
 ## Custom domain
 
