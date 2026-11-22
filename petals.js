@@ -4,7 +4,7 @@
   const canvas = document.getElementById("petals");
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const ctx = canvas.getContext("2d");
-  const COLORS = ["#7a2434", "#8e3446", "#5f1a28", "#9c4656"];
+  const COLORS = ["#7a2434", "#8e3446", "#5f1a28", "#d8919b", "#e7b3b6"];  // wine and blush
 
   let w = 0, h = 0, petals = [];
   const resize = () => {

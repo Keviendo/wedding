@@ -12,11 +12,14 @@ so browsers don't keep showing the old version.
 
 ## Artwork
 
-- `images/garland.webp`, `images/bouquet.webp` — composed from Pierre-Joseph Redouté's
-  *Les Roses* (1817–1824) via Wikimedia Commons: *Rosa gallica purpuro-violacea magna*,
-  *Rosa gallica pontiana*, *Rosa gallica flore giganteo* (public domain), and *Provence or
-  French Rose*, Cleveland Museum of Art (CC0). Reds toned toward wine.
-- `images/sky.jpg` — generated watercolor sky.
+- `images/garland.webp`, `images/bouquet.webp` — composed from Pierre-Joseph Redouté plates
+  on Wikimedia Commons, all public domain: from *Les Roses* (1817–1824) *Rosa gallica
+  purpuro-violacea magna*, *Rosa gallica pontiana*, *Rosa gallica flore giganteo*,
+  *Rosa centifolia foliacea*, *Rosa alba foliacea*; from *Choix des plus belles fleurs*
+  (1827–1833) plates 39 (peony), 137 (rose), and 143 (rose, anemone, clematis).
+  Brightest reds nudged toward crimson.
+- `images/sky.jpg`, `images/sky-portrait.jpg` — generated watercolor cumulus skies
+  (the portrait one is used on tall screens).
 - The drapes are drawn in SVG inside `index.html`.
 
 ## Preview locally
