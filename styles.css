@@ -62,14 +62,14 @@ a:hover { text-decoration-color: var(--wine); }
 .lang-toggle {
   position: fixed;
   z-index: 20;
-  top: 0.75rem;
-  right: 0.75rem;
-  padding: 0.45rem 1rem 0.4rem;
+  top: 0.9rem;
+  right: 0.9rem;
+  padding: 0.7rem 1.5rem 0.65rem;
   border: 1px solid var(--wine);
   border-radius: 999px;
   background: rgba(241, 234, 222, 0.92);
   color: var(--wine);
-  font: 700 0.875rem/1 var(--serif);
+  font: 700 1.125rem/1 var(--serif);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   cursor: pointer;
