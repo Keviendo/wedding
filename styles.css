@@ -1,0 +1,405 @@
+:root {
+  --green: #12302a;      /* envelope liner: hero, footer, buttons */
+  --gold: #b8945a;       /* foil: rules and ornaments, and text on green */
+  --gold-deep: #84662f;  /* gold that passes contrast on paper */
+  --paper: #fbfaf7;
+  --ink: #1c2421;
+  --muted: #5b6661;
+
+  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  --script: "Pinyon Script", cursive;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.7 var(--body);
+}
+
+a { color: inherit; text-decoration-color: var(--gold); text-underline-offset: 0.25em; }
+a:hover { color: var(--gold-deep); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.skip {
+  position: absolute; left: 1rem; top: -3rem; z-index: 2;
+  padding: 0.5rem 0.75rem; background: var(--paper); color: var(--ink);
+}
+.skip:focus { top: 1rem; }
+
+/* Small tracked capitals: labels, kicker, nav. */
+.label, .kicker, .nav, .button, .program time {
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* ---------- Hero: the invitation ---------- */
+
+.hero {
+  min-height: 100svh;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  background: var(--green);
+  color: var(--paper);
+}
+
+/* Double gold rule, inset like an engraved card border. */
+.frame {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100svh - 2 * clamp(0.75rem, 2vw, 1.25rem));
+  border: 1px solid var(--gold);
+  outline: 1px solid var(--gold);
+  outline-offset: -7px;
+  padding: 1.5rem clamp(1rem, 4vw, 3rem) clamp(2.5rem, 6vw, 4rem);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 2rem;
+}
+.nav a { color: var(--gold); text-decoration: none; padding: 0.25rem 0; }
+.nav a:hover { color: var(--paper); }
+
+.invite {
+  margin: auto;
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.kicker { margin: 0 0 1.5rem; color: var(--gold); }
+
+.names {
+  margin: 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-variation-settings: "opsz" 96;
+  font-size: clamp(3.75rem, 13vw, 9.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+.names > span { display: block; }
+
+.amp {
+  font-family: var(--script);
+  font-style: normal;
+  font-size: 0.8em;
+  line-height: 0.9;
+  color: var(--paper);
+}
+
+/* Gold foil with one pass of light across it on load. */
+.foil {
+  background: linear-gradient(100deg,
+    var(--gold) 0%, var(--gold) 42%, #f4e6c3 50%, var(--gold) 58%, var(--gold) 100%);
+  background-size: 300% 100%;
+  background-position: 0% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.request {
+  margin: 1.75rem 0 1.5rem;
+  font-family: var(--display);
+  font-variation-settings: "opsz" 24;
+  font-size: clamp(1.0625rem, 2vw, 1.375rem);
+  line-height: 1.5;
+}
+
+.when {
+  margin: 0 0 0.75rem;
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 24;
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+  line-height: 1.4;
+}
+
+.where { margin: 0 0 2.25rem; font-weight: 300; letter-spacing: 0.04em; }
+
+.button {
+  display: inline-block;
+  padding: 0.95rem 1.75rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.button:hover { background: var(--gold); color: var(--green); }
+.button.dark { border-color: var(--green); background: var(--green); color: var(--paper); }
+.button.dark:hover { background: var(--ink); color: var(--paper); }
+.button:disabled { opacity: 0.6; cursor: wait; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .invite > * { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .invite > :nth-child(2) { animation-delay: 0.15s; }
+  .invite > :nth-child(3) { animation-delay: 0.45s; }
+  .invite > :nth-child(4) { animation-delay: 0.55s; }
+  .invite > :nth-child(5) { animation-delay: 0.65s; }
+  .invite > :nth-child(6) { animation-delay: 0.75s; }
+  .foil { animation: sheen 2.2s ease-in-out 0.9s both; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(0.75rem); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes sheen {
+    from { background-position: 100% 0; }
+    to { background-position: 0% 0; }
+  }
+}
+
+/* ---------- Photos ---------- */
+
+/* Interior photo, framed in a gold rule like a mounted print. */
+.plate {
+  max-width: 64rem;
+  margin: clamp(3rem, 8vw, 6rem) auto 0;
+  padding: 0 1.5rem;
+}
+.plate img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--gold);
+  padding: 6px;
+  background: #fff;
+}
+
+/* Ceremony: the bell tower in an arched window that echoes the chapel's own. */
+.venue {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.5rem clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.arch {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 45% 50%;
+  border-radius: 999px 999px 0 0;
+}
+.venue-details .label + p { margin-bottom: 0.5rem; }
+.venue-details .label:not(:first-child) { margin-top: 2.25rem; }
+
+@media (max-width: 640px) {
+  .venue { grid-template-columns: 1fr; text-align: center; }
+  .arch { max-width: 13rem; aspect-ratio: 5 / 6; margin: 0 auto; }
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: clamp(4rem, 10vw, 7rem) 1.5rem 0;
+}
+
+.title {
+  margin: 0 0 3rem;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-variation-settings: "opsz" 72;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  line-height: 1.1;
+  text-align: center;
+}
+/* Ornament under each title: hairline, diamond, hairline. */
+.title::after {
+  content: "\25C6";
+  display: block;
+  width: 7.5rem;
+  margin: 1.25rem auto 0;
+  font: normal 0.75rem/1 var(--body);
+  color: var(--gold);
+  background:
+    linear-gradient(var(--gold), var(--gold)) left center / 3.1rem 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right center / 3.1rem 1px no-repeat;
+}
+
+.label { margin: 0 0 0.75rem; color: var(--gold-deep); }
+.center { text-align: center; }
+.note { color: var(--muted); }
+
+.section p { margin: 0 0 0.75rem; }
+
+.pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 2.5rem 3rem;
+  text-align: center;
+}
+
+/* Schedule set like a printed programme: dotted leaders to the time. */
+.program {
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+.program li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  font-family: var(--display);
+  font-variation-settings: "opsz" 24;
+  font-size: 1.25rem;
+}
+.program li::after {
+  content: "";
+  order: 1;
+  flex: 1;
+  border-bottom: 1px dotted var(--gold);
+  transform: translateY(-0.3em);
+}
+.program time { order: 2; color: var(--gold-deep); }
+
+.hotels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.hotels li {
+  padding: 1.75rem 1.5rem;
+  border: 1px solid #ddd6c8;
+  text-align: center;
+}
+.hotels h4 {
+  margin: 0 0 0.5rem;
+  font-family: var(--display);
+  font-weight: 500;
+  font-variation-settings: "opsz" 24;
+  font-size: 1.25rem;
+}
+.hotels p { color: var(--muted); }
+.pair + .label { margin-top: 3.5rem; }
+
+.faq { margin: 0; }
+.faq div { padding: 1.25rem 0; border-top: 1px solid #e4dfd4; }
+.faq div:first-child { border-top: 0; padding-top: 0; }
+.faq dt {
+  margin-bottom: 0.35rem;
+  font-family: var(--display);
+  font-weight: 500;
+  font-variation-settings: "opsz" 24;
+  font-size: 1.1875rem;
+}
+.faq dd { margin: 0; color: var(--muted); }
+
+/* ---------- RSVP: the reply card ---------- */
+
+.card {
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: clamp(1.75rem, 5vw, 3rem);
+  border: 1px solid var(--gold);
+  outline: 1px solid var(--gold);
+  outline-offset: -7px;
+  background: #fff;
+}
+
+.card-head {
+  margin: 0 0 2rem !important;
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 24;
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.field { display: block; margin-bottom: 1.25rem; }
+.field span {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.field em { font-style: normal; opacity: 0.8; }
+
+input, textarea {
+  width: 100%;
+  padding: 0.5rem 0;
+  border: 0;
+  border-bottom: 1px solid #c9c1b0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+}
+textarea { resize: vertical; }
+input:focus, textarea:focus { outline: none; border-bottom-color: var(--green); box-shadow: 0 1px 0 var(--green); }
+
+.choice {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.5rem 0 1.75rem;
+  padding: 0;
+  border: 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 24;
+  font-size: 1.1875rem;
+}
+.choice label { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; }
+.choice input { width: 1.1rem; height: 1.1rem; margin: 0; accent-color: var(--green); }
+.choice input:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.if-attending[hidden] { display: none; }
+
+.trap { position: absolute; left: -9999px; }
+
+.card .button { display: block; width: 100%; margin-top: 2rem; }
+
+.status { margin: 1rem 0 0 !important; text-align: center; min-height: 1.7em; }
+.status.error { color: #9b2c2c; }
+.card.sent .field, .card.sent .choice, .card.sent .if-attending, .card.sent .button { display: none; }
+.card.sent .status {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.25rem;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  margin-top: clamp(4rem, 10vw, 7rem);
+  padding: 3.5rem 1.5rem;
+  background: var(--green);
+  text-align: center;
+}
+.footer p { margin: 0; }
+.footer .label { color: var(--gold); margin-top: 0.75rem; }
+.footer .credit { margin-top: 2rem; font-size: 0.75rem; color: #9aa8a2; }
+.monogram {
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 72;
+  font-size: 2.25rem;
+  color: var(--gold);
+}
+.monogram span { font-family: var(--script); font-style: normal; color: var(--paper); }

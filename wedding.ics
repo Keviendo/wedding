@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Kevin and Rosie//Wedding//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:kevin-rosie-wedding-20261222@keviendo.github.io
+DTSTAMP:20261121T000000Z
+DTSTART:20261222T210000Z
+DTEND:20261222T213000Z
+SUMMARY:Kevin & Rosie's wedding
+LOCATION:14th Street Chapel\, 3478 14th St\, Riverside\, CA 92501
+DESCRIPTION:Please arrive by 12:45 pm. The chapel doors open at 1:00 pm sharp.\nhttps://keviendo.github.io/wedding/
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:Kevin & Rosie's wedding
+END:VALARM
+END:VEVENT
+END:VCALENDAR
