@@ -1,7 +1,7 @@
 :root {
   --sky: #a9c0d5;        /* fallback under the watercolor */
-  --wine: #6a1d2d;       /* script, titles, buttons */
-  --wine-soft: rgba(106, 29, 45, 0.45);
+  --wine: #6e2b45;       /* script, titles, buttons: plum-rose, to sit with blush and lavender */
+  --wine-soft: rgba(110, 43, 69, 0.45);
   --ink: #3b2a30;        /* body copy */
   --mauve: #4a2e38;      /* small capitals */
   --cream: #efe6d6;
@@ -86,52 +86,44 @@ a:hover { text-decoration-color: var(--wine); }
 /* ---------- Hero: the invitation ---------- */
 
 .hero {
+  --swag-h: clamp(110px, 17vw, 260px);
+  --mound-w: clamp(230px, 36vw, 560px);
   position: relative;
   min-height: 100svh;
   display: flex;
-  /* Top padding tracks the garland's height (it's 23% as tall as it is wide). */
   padding:
-    calc(max(100vw, 760px) * 0.2 + 1rem)
-    clamp(2.75rem, 16vw, 15rem)
-    clamp(3rem, 6vw, 5rem);
+    calc(var(--swag-h) + 1.75rem)
+    clamp(2.75rem, 14vw, 15rem)
+    2.5rem;   /* wide screens: floor arrangements sit beside the text */
   overflow: hidden;
   text-align: center;
 }
 
-.garland {
+/* Chiffon: swags across the top, panels down the sides (drawn in index.html). */
+.swags, .panel, .corner, .center-flowers, .mound {
   position: absolute;
-  z-index: 2;
+  pointer-events: none;
+}
+.swags { z-index: 2; top: 0; left: 0; width: 100%; height: var(--swag-h); }
+.panel { z-index: 1; top: 0; width: clamp(34px, 8vw, 140px); height: 100%; }
+.panel-left { left: 0; }
+.panel-right { right: 0; scale: -1 1; }
+
+/* Flowers gather where the fabric is tied: both top corners and the center. */
+.corner { z-index: 3; top: -1.5%; width: clamp(190px, 32vw, 500px); height: auto; }
+.corner-left { left: -1.5%; }
+.corner-right { right: -1.5%; scale: -1 1; }
+.center-flowers {
+  z-index: 3;
   top: 0;
   left: 50%;
-  width: max(100%, 760px);
+  width: clamp(150px, 20vw, 300px);
   height: auto;
   translate: -50% 0;
-  pointer-events: none;
 }
-
-.drape {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  width: clamp(48px, 15vw, 250px);
-  height: 78%;
-  pointer-events: none;
-  -webkit-mask-image: linear-gradient(#000 75%, transparent);
-  mask-image: linear-gradient(#000 75%, transparent);
-}
-.drape-left { left: 0; }
-.drape-right { right: 0; scale: -1 1; }
-
-.bouquet {
-  position: absolute;
-  z-index: 2;
-  bottom: 0;
-  width: clamp(150px, 24vw, 360px);
-  height: auto;
-  pointer-events: none;
-}
-.bouquet-left { left: -1.5rem; }
-.bouquet-right { right: -1.5rem; scale: -1 1; }
+.mound { z-index: 3; bottom: 0; width: var(--mound-w); height: auto; }
+.mound-left { left: -3%; }
+.mound-right { right: -3%; scale: -1 1; }
 
 .invite {
   position: relative;
@@ -212,7 +204,7 @@ a:hover { text-decoration-color: var(--wine); }
 }
 .button:hover { background: var(--wine); color: var(--cream); }
 .button.solid { background: var(--wine); color: var(--cream); }
-.button.solid:hover { background: #561623; }
+.button.solid:hover { background: #57203a; }
 .button:disabled { opacity: 0.6; cursor: wait; }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -226,10 +218,9 @@ a:hover { text-decoration-color: var(--wine); }
   }
 }
 
-/* Phones: bouquets sit below the text instead of beside it. */
+/* Phones: the floor arrangements sit below the text instead of beside it. */
 @media (max-width: 900px) {
-  .hero .bouquet { width: clamp(170px, 32vw, 300px); }
-  .hero { padding-bottom: calc(clamp(170px, 32vw, 300px) * 0.92 + 1rem); }
+  .hero { --mound-w: clamp(200px, 52vw, 420px); padding-bottom: calc(var(--mound-w) * 0.66); }
   .date { gap: 0.75rem; }
 }
 
@@ -391,7 +382,7 @@ input:focus, textarea:focus { outline: none; border-bottom-color: var(--wine); b
 .card.sent .field, .card.sent .choice, .card.sent .if-attending, .card.sent .button { display: none; }
 .card.sent .status { font-style: italic; font-weight: 600; font-size: 1.5rem; color: var(--wine); }
 
-/* ---------- Footer: bouquets again, like the bottom of the invitation ---------- */
+/* ---------- Footer: the floor arrangements again ---------- */
 
 .footer {
   position: relative;
@@ -401,4 +392,4 @@ input:focus, textarea:focus { outline: none; border-bottom-color: var(--wine); b
   text-align: center;
 }
 .footer p { margin: 0; position: relative; z-index: 3; }
-.footer .bouquet { width: clamp(140px, 22vw, 320px); }
+.footer .mound { width: clamp(200px, 32vw, 460px); }

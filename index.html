@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="images/garland.webp">
+  <link rel="preload" as="image" href="images/corner.webp">
   <!-- Bump ?v= on each change so browsers fetch the new file instead of a cached one. -->
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
   <a class="skip" href="#ceremony">Skip to details</a>
@@ -23,45 +23,90 @@
     Fill in everything in [brackets]. Search the file for "[" to find them all.
   -->
 
-  <!-- Shared fabric for the two drapes. -->
+  <!-- Chiffon drapes: layered swags across the top, long panels down the sides. -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
-      <linearGradient id="silk" x1="0" x2="1">
-        <stop offset="0" stop-color="#e6d8bf"/>
-        <stop offset=".16" stop-color="#cdb792"/>
-        <stop offset=".3" stop-color="#efe5d2"/>
-        <stop offset=".46" stop-color="#d1bb96"/>
-        <stop offset=".62" stop-color="#ece1cc"/>
-        <stop offset=".8" stop-color="#d6c29f"/>
-        <stop offset="1" stop-color="#e8dcc6"/>
+      <linearGradient id="chiffon" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#efe6d8"/>
+        <stop offset=".35" stop-color="#e8dccb"/>
+        <stop offset=".72" stop-color="#d9c9b0"/>
+        <stop offset=".9" stop-color="#ebe1d1"/>
+        <stop offset="1" stop-color="#f6f0e6"/>
       </linearGradient>
-      <filter id="wash" x="-5%" y="-5%" width="110%" height="110%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7"/>
-        <feDisplacementMap in="SourceGraphic" scale="9"/>
-      </filter>
-      <symbol id="drape" viewBox="0 0 300 1000" preserveAspectRatio="none">
-        <g filter="url(#wash)">
-          <path d="M0,0 H285 C255,170 160,350 70,470 C90,600 115,780 82,1000 H0 Z" fill="url(#silk)" opacity=".93"/>
-          <g fill="none" stroke="#bfa47b" stroke-width="3" opacity=".45">
-            <path d="M60,0 C55,200 58,360 62,470"/>
-            <path d="M120,0 C110,190 85,350 66,470"/>
-            <path d="M185,0 C165,180 110,350 70,470"/>
-            <path d="M245,0 C215,170 135,350 72,472"/>
-            <path d="M62,480 C55,650 30,820 20,1000"/>
-            <path d="M68,480 C80,650 72,820 58,1000"/>
-          </g>
-          <path d="M38,462 C60,478 84,486 104,480" fill="none" stroke="#a88c62" stroke-width="9" stroke-linecap="round"/>
+      <linearGradient id="chiffon-back" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#e6dccd"/>
+        <stop offset=".7" stop-color="#d3c4ad"/>
+        <stop offset="1" stop-color="#ece4d7"/>
+      </linearGradient>
+      <linearGradient id="panel" x1="0" x2="1">
+        <stop offset="0" stop-color="#e4d7c3"/>
+        <stop offset=".3" stop-color="#f1e9dd"/>
+        <stop offset=".55" stop-color="#e3d6c1"/>
+        <stop offset=".8" stop-color="#efe7da"/>
+        <stop offset="1" stop-color="#d8c8ae"/>
+      </linearGradient>
+      <filter id="fold-blur"><feGaussianBlur stdDeviation="1.6"/></filter>
+
+      <symbol id="swags" viewBox="0 0 1200 260" preserveAspectRatio="none">
+        <!-- back row: one wide drop behind three shallow swags -->
+        <g fill="url(#chiffon-back)" opacity=".85">
+          <path d="M0,-4 L1200,-4 Q600,240 0,-4 Z"/>
+          <path d="M0,-4 L400,-4 Q200,250 0,-4 Z"/>
+          <path d="M400,-4 L800,-4 Q600,250 400,-4 Z"/>
+          <path d="M800,-4 L1200,-4 Q1000,250 800,-4 Z"/>
         </g>
+        <g fill="none" filter="url(#fold-blur)">
+          <g stroke="#c9b697" stroke-width="2.5" opacity=".4">
+            <path d="M0,0 Q200,124 400,0"/><path d="M0,0 Q200,172 400,0"/><path d="M0,0 Q200,220 400,0"/>
+            <path d="M400,0 Q600,124 800,0"/><path d="M400,0 Q600,172 800,0"/><path d="M400,0 Q600,220 800,0"/>
+            <path d="M800,0 Q1000,124 1200,0"/><path d="M800,0 Q1000,172 1200,0"/><path d="M800,0 Q1000,220 1200,0"/>
+          </g>
+          <g stroke="#f8f3ea" stroke-width="2.5" opacity=".55">
+            <path d="M0,0 Q200,150 400,0"/><path d="M400,0 Q600,150 800,0"/><path d="M800,0 Q1000,150 1200,0"/>
+          </g>
+        </g>
+        <!-- front row: two deep swags meeting at the center -->
+        <g fill="url(#chiffon)" opacity=".95">
+          <path d="M0,-4 Q300,100 600,-4 Q300,410 0,-4 Z"/>
+          <path d="M600,-4 Q900,100 1200,-4 Q900,410 600,-4 Z"/>
+        </g>
+        <g fill="none" filter="url(#fold-blur)">
+          <g stroke="#c8b493" stroke-width="3.5" opacity=".42">
+            <path d="M0,0 Q300,192 600,0"/><path d="M0,0 Q300,270 600,0"/><path d="M0,0 Q300,348 600,0"/>
+            <path d="M600,0 Q900,192 1200,0"/><path d="M600,0 Q900,270 1200,0"/><path d="M600,0 Q900,348 1200,0"/>
+          </g>
+          <g stroke="#fbf7f0" stroke-width="3.5" opacity=".6">
+            <path d="M0,0 Q300,230 600,0"/><path d="M0,0 Q300,310 600,0"/><path d="M0,0 Q300,398 600,0"/>
+            <path d="M600,0 Q900,230 1200,0"/><path d="M600,0 Q900,310 1200,0"/><path d="M600,0 Q900,398 1200,0"/>
+          </g>
+        </g>
+        <rect x="0" y="-10" width="1200" height="16" fill="#eee5d7"/>
+      </symbol>
+
+      <symbol id="panel-left" viewBox="0 0 200 1000" preserveAspectRatio="none">
+        <path d="M0,0 H160 C140,180 170,380 140,600 C125,760 150,900 200,1000 H0 Z" fill="url(#panel)" opacity=".95"/>
+        <g fill="none" filter="url(#fold-blur)">
+          <g stroke="#d0bfa2" stroke-width="5" opacity=".5">
+            <path d="M40,0 C38,300 30,700 20,1000"/><path d="M88,0 C82,300 76,700 70,1000"/><path d="M128,0 C118,300 112,650 125,1000"/>
+          </g>
+          <g stroke="#fbf7f0" stroke-width="6" opacity=".6">
+            <path d="M62,0 C60,300 54,700 46,1000"/><path d="M108,0 C100,300 95,680 98,1000"/>
+          </g>
+        </g>
+        <path d="M160,0 C140,180 170,380 140,600 C125,760 150,900 200,1000" fill="none" stroke="#cdbb9d" stroke-width="3" opacity=".55"/>
       </symbol>
     </defs>
   </svg>
 
   <header class="hero">
-    <img class="garland" src="images/garland.webp" width="2600" height="564" alt="">
-    <svg class="drape drape-left" aria-hidden="true"><use href="#drape"/></svg>
-    <svg class="drape drape-right" aria-hidden="true"><use href="#drape"/></svg>
-    <img class="bouquet bouquet-left" src="images/bouquet.webp" width="1400" height="1285" alt="">
-    <img class="bouquet bouquet-right" src="images/bouquet.webp" width="1400" height="1285" alt="">
+    <svg class="panel panel-left" aria-hidden="true"><use href="#panel-left"/></svg>
+    <svg class="panel panel-right" aria-hidden="true"><use href="#panel-left"/></svg>
+    <svg class="swags" aria-hidden="true"><use href="#swags"/></svg>
+    <img class="corner corner-left" src="images/corner.webp" width="1400" height="1400" alt="">
+    <img class="corner corner-right" src="images/corner.webp" width="1400" height="1400" alt="">
+    <img class="center-flowers" src="images/center.webp" width="900" height="640" alt="">
+    <img class="mound mound-left" src="images/mound.webp" width="1500" height="1150" alt="">
+    <img class="mound mound-right" src="images/mound.webp" width="1500" height="1150" alt="">
 
     <div class="invite">
       <p class="monogram" aria-hidden="true">K R</p>
@@ -206,13 +251,13 @@
   </main>
 
   <footer class="footer">
-    <img class="bouquet bouquet-left" src="images/bouquet.webp" width="1400" height="1285" alt="" loading="lazy">
-    <img class="bouquet bouquet-right" src="images/bouquet.webp" width="1400" height="1285" alt="" loading="lazy">
+    <img class="mound mound-left" src="images/mound.webp" width="1500" height="1150" alt="" loading="lazy">
+    <img class="mound mound-right" src="images/mound.webp" width="1500" height="1150" alt="" loading="lazy">
     <p class="monogram">K R</p>
     <p class="caps">December 22, 2026</p>
   </footer>
 
-  <script src="petals.js?v=8"></script>
-  <script src="rsvp.js?v=8"></script>
+  <script src="petals.js?v=9"></script>
+  <script src="rsvp.js?v=9"></script>
 </body>
 </html>

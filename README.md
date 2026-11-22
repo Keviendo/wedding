@@ -12,15 +12,14 @@ so browsers don't keep showing the old version.
 
 ## Artwork
 
-- `images/garland.webp`, `images/bouquet.webp` — composed from Pierre-Joseph Redouté plates
-  on Wikimedia Commons, all public domain: from *Les Roses* (1817–1824) *Rosa gallica
-  purpuro-violacea magna*, *Rosa gallica pontiana*, *Rosa gallica flore giganteo*,
-  *Rosa centifolia foliacea*, *Rosa alba foliacea*; from *Choix des plus belles fleurs*
-  (1827–1833) plates 39 (peony), 137 (rose), and 143 (rose, anemone, clematis).
-  Brightest reds nudged toward crimson.
+- `images/corner.webp`, `images/center.webp`, `images/mound.webp` — airy garden arrangements.
+  Roses, peony, anemone and clematis are cut from public-domain Pierre-Joseph Redouté plates on
+  Wikimedia Commons (*Les Roses*, 1817–1824: *Rosa centifolia foliacea*, *Rosa alba foliacea*,
+  *Rosa gallica flore giganteo*; *Choix des plus belles fleurs*, 1827–1833: plates 39, 137, 143),
+  each faded to a soft round shape. Lavender, baby's breath and cosmos are drawn.
 - `images/sky.jpg`, `images/sky-portrait.jpg` — generated watercolor cumulus skies
   (the portrait one is used on tall screens).
-- The drapes are drawn in SVG inside `index.html`.
+- The chiffon swags and side panels are SVG inside `index.html` (`#swags`, `#panel-left`).
 
 ## Preview locally
 

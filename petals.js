@@ -4,7 +4,8 @@
   const canvas = document.getElementById("petals");
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const ctx = canvas.getContext("2d");
-  const COLORS = ["#7a2434", "#8e3446", "#5f1a28", "#d8919b", "#e7b3b6"];  // wine and blush
+  // blush, rose, lavender, cream — the colors of the arrangements
+  const COLORS = ["#e7aab4", "#f0c6cb", "#d98c9c", "#c7b1dc", "#b59ccf", "#f4e9dd", "#e9b9a4"];
 
   let w = 0, h = 0, petals = [];
   const resize = () => {
@@ -14,7 +15,7 @@
     canvas.width = w * dpr;
     canvas.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const count = w < 640 ? 10 : 16;
+    const count = w < 640 ? 20 : 32;
     while (petals.length < count) petals.push(spawn(true));
     petals.length = count;
   };
@@ -39,12 +40,16 @@
     // Tumbling: squash one axis so the petal seems to turn over as it falls.
     ctx.scale(1, 0.55 + 0.45 * Math.abs(Math.sin(t * 0.9 + p.phase)));
     ctx.fillStyle = p.color;
-    ctx.globalAlpha = 0.7;
+    ctx.globalAlpha = 0.85;
+    // faint edge so cream petals still show against pale clouds
+    ctx.strokeStyle = "rgba(150, 110, 120, 0.25)";
+    ctx.lineWidth = 0.8;
     ctx.beginPath();
     ctx.moveTo(0, -p.size);
     ctx.bezierCurveTo(p.size * 0.9, -p.size * 0.6, p.size * 0.7, p.size * 0.7, 0, p.size);
     ctx.bezierCurveTo(-p.size * 0.7, p.size * 0.7, -p.size * 0.9, -p.size * 0.6, 0, -p.size);
     ctx.fill();
+    ctx.stroke();
     ctx.restore();
   };
 
