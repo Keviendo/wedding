@@ -15,7 +15,7 @@
     e.preventDefault();
     const declining = form.attending.value === "Regretfully declines";
     const data = new FormData(form);
-    if (declining) ["guests", "guest_names", "dietary"].forEach((k) => data.delete(k));
+    if (declining) ["guests", "guest_names"].forEach((k) => data.delete(k));
     // Subject line of the notification email Formspree sends to us.
     const count = declining ? "" : ` (${data.get("guests")})`;
     data.set("_subject", `RSVP: ${data.get("name")} ${declining ? "declines" : "accepts"}${count}`);

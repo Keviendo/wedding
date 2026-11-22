@@ -11,7 +11,7 @@
   <meta name="color-scheme" content="dark">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Jost:wght@300..600&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Jost:wght@300..600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,7 +26,6 @@
       <nav class="nav" aria-label="Sections">
         <a href="#ceremony">Ceremony</a>
         <a href="#schedule">Schedule</a>
-        <a href="#travel">Travel</a>
         <a href="#faq">FAQ</a>
         <a href="#rsvp">RSVP</a>
       </nav>
@@ -34,14 +33,14 @@
       <div class="invite">
         <p class="kicker">Together with their families</p>
         <h1 class="names">
-          <span class="foil">Kevin</span>
+          <span>Kevin</span>
           <span class="amp" aria-label="and">&amp;</span>
-          <span class="foil">Rosie</span>
+          <span>Rosie</span>
         </h1>
         <p class="request">request the pleasure of your company<br>at the celebration of their marriage</p>
         <p class="when">Tuesday, the twenty-second of December<br>two thousand twenty-six<br>at one o'clock in the afternoon</p>
         <p class="where">The 14th Street Chapel · Riverside, California</p>
-        <a class="button" href="#rsvp">Reply by [December 1]</a>
+        <a class="button" href="#rsvp">Reply by December 14</a>
       </div>
     </div>
   </header>
@@ -54,15 +53,13 @@
 
     <section id="ceremony" class="section">
       <h2 class="title">The ceremony</h2>
-      <div class="venue">
-        <img class="arch" src="images/chapel-tower.jpg" width="1010" height="720"
-             alt="The chapel's bell tower: arched openings in pale stucco under a red clay-tile roof.">
-        <div class="venue-details">
+      <div class="pair">
+        <div>
           <h3 class="label">When</h3>
           <p>Tuesday, December 22, 2026<br>1:00 in the afternoon</p>
           <p class="note">The chapel doors open at 1:00 sharp, not before. Please arrive by 12:45.</p>
-          <p><a href="wedding.ics" download>Add to calendar</a></p>
-
+        </div>
+        <div>
           <h3 class="label">Where</h3>
           <p>The 14th Street Chapel<br>3478 14th Street<br>Riverside, CA 92501</p>
           <p><a href="https://www.google.com/maps/search/?api=1&amp;query=14th+Street+Chapel+3478+14th+St+Riverside+CA+92501">Get directions</a></p>
@@ -76,40 +73,7 @@
         <li><span>Guests gather outside</span><time>12:45 pm</time></li>
         <li><span>Doors open &amp; ceremony</span><time>1:00 pm</time></li>
         <li><span>Photos outside the chapel</span><time>1:30 pm</time></li>
-        <!-- Delete this row if there's no celebration afterward. -->
-        <li><span>[Lunch at Venue name]</span><time>[2:30 pm]</time></li>
       </ol>
-    </section>
-
-    <section id="travel" class="section">
-      <h2 class="title">Travel &amp; hotels</h2>
-      <div class="pair">
-        <div>
-          <h3 class="label">Getting there</h3>
-          <p>The chapel is in downtown Riverside. The nearest airport is Ontario International (ONT), about 25 minutes away by car.</p>
-        </div>
-        <div>
-          <h3 class="label">Parking</h3>
-          <p>Free parking in front of and behind the chapel. If those lots are full, there's street parking on Orange Grove Avenue, where fees may apply.</p>
-        </div>
-      </div>
-
-      <h3 class="label center">Where to stay</h3>
-      <p class="center note">We've reserved rooms at a group rate. Book by [August 12] to get it.</p>
-      <ul class="hotels">
-        <li>
-          <h4>[Hotel name]</h4>
-          <p>[Street address, City]<br>[10 minutes from the venue]</p>
-          <p>Group code: <strong>[CODE]</strong></p>
-          <a href="https://example.com">Book a room</a>
-        </li>
-        <li>
-          <h4>[Hotel name]</h4>
-          <p>[Street address, City]<br>[15 minutes from the venue]</p>
-          <p>Group code: <strong>[CODE]</strong></p>
-          <a href="https://example.com">Book a room</a>
-        </li>
-      </ul>
     </section>
 
     <section id="faq" class="section">
@@ -158,7 +122,7 @@
       <h2 class="title">RSVP</h2>
       <!-- Replies go to Formspree (dashboard: formspree.io/forms/mkjrqoba). -->
       <form class="card" id="rsvp-form" action="https://formspree.io/f/mkjrqoba" method="POST">
-        <p class="card-head">The favour of a reply is requested<br>by [the first of December]</p>
+        <p class="card-head">The favour of a reply is requested<br>by the fourteenth of December</p>
 
         <label class="field">
           <span>Your name</span>
@@ -185,10 +149,6 @@
             <span>Names of everyone attending</span>
             <input name="guest_names">
           </label>
-          <label class="field">
-            <span>Dietary needs or allergies</span>
-            <input name="dietary">
-          </label>
         </div>
 
         <label class="field">
@@ -208,7 +168,6 @@
   <footer class="footer">
     <p class="monogram">K <span>&amp;</span> R</p>
     <p class="label">12 · 22 · 2026</p>
-    <p class="credit">Chapel photos courtesy of the Riverside County Assessor-County Clerk-Recorder</p>
   </footer>
 
   <script src="rsvp.js"></script>
