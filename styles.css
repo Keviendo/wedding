@@ -96,9 +96,12 @@ a:hover { color: var(--gold-light); }
   color: var(--gold);
 }
 .names > span { display: block; }
+/* The script's own "&" is a swash that reads as a letter, so use the serif's classic one. */
 .amp {
-  font-size: 0.55em;
-  line-height: 0.8;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 0.45em;
+  line-height: 1;
   color: var(--ivory);
 }
 
@@ -364,4 +367,4 @@ input:-webkit-autofill {
   line-height: 1.1;
   color: var(--gold);
 }
-.monogram span { color: var(--ivory); }
+.monogram span { font-family: var(--serif); font-weight: 500; font-size: 0.6em; color: var(--ivory); }
