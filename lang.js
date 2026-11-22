@@ -47,7 +47,7 @@
     a8: "No podemos incluir acompañantes adicionales. La capilla tiene capacidad para solo 40 invitados, por lo que la invitación es únicamente para las personas nombradas en ella.",
 
     tRsvp: "Confirmación",
-    cardHead: "Le agradeceremos su respuesta<br>antes del siete de diciembre",
+    cardHead: "Le agradeceremos responder antes del 7 de diciembre",
     fName: "Su nombre",
     fEmail: "Correo electrónico",
     willAttend: "¿Asistirá?",
