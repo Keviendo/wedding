@@ -95,7 +95,10 @@ a:hover { text-decoration-color: var(--wine); }
     calc(var(--swag-h) + 1.75rem)
     clamp(2.75rem, 14vw, 15rem)
     2.5rem;   /* wide screens: floor arrangements sit beside the text */
-  overflow: hidden;
+  /* Clip sideways only, so the floor arrangements can spill down past the hero
+     and fade out around the chapel photo instead of ending in a straight line. */
+  overflow-x: clip;
+  overflow-y: visible;
   text-align: center;
 }
 
@@ -121,7 +124,8 @@ a:hover { text-decoration-color: var(--wine); }
   height: auto;
   translate: -50% 0;
 }
-.mound { z-index: 3; bottom: 0; width: var(--mound-w); height: auto; }
+/* The image fades out in its lower third; that part hangs below the hero. */
+.mound { z-index: 3; bottom: calc(var(--mound-w) * -0.36); width: var(--mound-w); height: auto; }
 .mound-left { left: -3%; }
 .mound-right { right: -3%; scale: -1 1; }
 
@@ -220,7 +224,7 @@ a:hover { text-decoration-color: var(--wine); }
 
 /* Phones: the floor arrangements sit below the text instead of beside it. */
 @media (max-width: 900px) {
-  .hero { --mound-w: clamp(200px, 52vw, 420px); padding-bottom: calc(var(--mound-w) * 0.66); }
+  .hero { --mound-w: clamp(200px, 52vw, 420px); padding-bottom: calc(var(--mound-w) * 0.7); }
   .date { gap: 0.75rem; }
 }
 
@@ -392,4 +396,4 @@ input:focus, textarea:focus { outline: none; border-bottom-color: var(--wine); b
   text-align: center;
 }
 .footer p { margin: 0; position: relative; z-index: 3; }
-.footer .mound { width: clamp(200px, 32vw, 460px); }
+.footer .mound { width: clamp(200px, 32vw, 460px); bottom: calc(clamp(200px, 32vw, 460px) * -0.3); }

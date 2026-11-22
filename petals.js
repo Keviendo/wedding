@@ -15,7 +15,7 @@
     canvas.width = w * dpr;
     canvas.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const count = w < 640 ? 20 : 32;
+    const count = w < 640 ? 28 : 46;
     while (petals.length < count) petals.push(spawn(true));
     petals.length = count;
   };
