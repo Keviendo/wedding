@@ -186,6 +186,7 @@ a:hover { text-decoration-color: var(--wine); }
 }
 
 .lead-in { margin-top: 1.75rem !important; }
+.strict { margin-top: 0.6rem !important; color: var(--wine); }
 
 .venue {
   margin: 0.25rem 0 0.4rem !important;
@@ -286,6 +287,20 @@ a:hover { text-decoration-color: var(--wine); }
   gap: 2.5rem 3rem;
   text-align: center;
 }
+
+/* Arrival notice: the one hard rule of the day, set apart in a framed card. */
+.notice {
+  max-width: 34rem;
+  margin: 2.5rem auto 0;
+  padding: 1.5rem 1.75rem 1.1rem;
+  border: 1px solid var(--wine);
+  outline: 1px solid var(--wine-soft);
+  outline-offset: -6px;
+  background: rgba(241, 234, 222, 0.7);
+  text-align: center;
+}
+.notice .label { color: var(--wine); }
+.notice strong { color: var(--wine); font-weight: 700; }
 
 /* Schedule set like a printed programme: dotted leaders to the time. */
 .program {
