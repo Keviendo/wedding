@@ -228,6 +228,15 @@ a:hover { text-decoration-color: var(--wine); }
   .date { gap: 0.75rem; }
   footer.footer { --foot-w: clamp(170px, 46vw, 320px); }  /* beats the base .footer rule below */
 }
+/* Narrow phones: not enough width to put the flowers beside the text, so the
+   monogram and date sit on top and the arrangements start below them. */
+@media (max-width: 600px) {
+  footer.footer {
+    justify-content: flex-start;
+    min-height: 0;
+    padding-bottom: calc(var(--foot-w) * 0.78);
+  }
+}
 
 /* ---------- Photo ---------- */
 
