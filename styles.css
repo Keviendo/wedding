@@ -332,7 +332,7 @@ a:hover { text-decoration-color: var(--wine); }
   border: 1px solid var(--wine-soft);
   outline: 1px solid var(--wine-soft);
   outline-offset: -7px;
-  background: rgba(241, 234, 222, 0.88);   /* mostly opaque cream so the form reads cleanly */
+  background: rgba(241, 234, 222, 0.7);   /* soft cream: a little sky shows through, form still reads cleanly */
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
 }
