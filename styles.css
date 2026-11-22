@@ -6,9 +6,9 @@
   --gold: #b8945a;       /* foil: rules, ornaments, labels */
   --gold-light: #d6b77f; /* hover */
   --ivory: #efe8d8;      /* the one "white", used sparingly: titles, ampersand, monogram */
-  --text: #c8c2b3;       /* body copy, softer than ivory */
-  --muted: #8e9a93;
-  --line: rgba(184, 148, 90, 0.3);
+  --text: #e0dacb;       /* body copy, a step softer than ivory */
+  --muted: #bdc3b9;      /* secondary copy: still easy to read on the dark */
+  --line: rgba(184, 148, 90, 0.45);
 
   --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
   --body: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
@@ -21,7 +21,14 @@ body {
   margin: 0;
   background: var(--night);
   color: var(--text);
-  font: 400 1.0625rem/1.7 var(--body);
+  font: 450 1.125rem/1.7 var(--body);
+}
+
+/* Bodoni's hairlines vanish when small and light-on-dark. Its low optical
+   size and a heavier weight keep the strokes solid at reading sizes. */
+.request, .when, .program li, .faq dt, .hotels h4, .card-head, .choice {
+  font-variation-settings: "opsz" 11 !important;
+  font-weight: 500;
 }
 
 a { color: inherit; text-decoration-color: var(--gold); text-underline-offset: 0.25em; }
@@ -42,8 +49,8 @@ a:hover { color: var(--gold-light); }
 /* Small tracked capitals: labels, kicker, nav. */
 .label, .kicker, .nav, .button, .program time {
   font-family: var(--body);
-  font-weight: 500;
-  font-size: 0.75rem;
+  font-weight: 600;
+  font-size: 0.8125rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
 }
@@ -89,8 +96,8 @@ a:hover { color: var(--gold-light); }
   margin: 0;
   font-family: var(--display);
   font-style: italic;
-  font-weight: 400;
-  font-variation-settings: "opsz" 96;
+  font-weight: 500;
+  font-variation-settings: "opsz" 48;
   font-size: clamp(3.75rem, 13vw, 9.5rem);
   line-height: 0.95;
   letter-spacing: -0.01em;
@@ -133,7 +140,7 @@ a:hover { color: var(--gold-light); }
   line-height: 1.4;
 }
 
-.where { margin: 0 0 2.25rem; font-weight: 300; letter-spacing: 0.04em; }
+.where { margin: 0 0 2.25rem; letter-spacing: 0.04em; }
 
 .button {
   display: inline-block;
@@ -225,8 +232,8 @@ a:hover { color: var(--gold-light); }
   margin: 0 0 3rem;
   font-family: var(--display);
   font-style: italic;
-  font-weight: 400;
-  font-variation-settings: "opsz" 72;
+  font-weight: 500;
+  font-variation-settings: "opsz" 48;
   font-size: clamp(2.25rem, 5vw, 3.25rem);
   line-height: 1.1;
   text-align: center;
@@ -316,7 +323,8 @@ a:hover { color: var(--gold-light); }
   font-variation-settings: "opsz" 24;
   font-size: 1.1875rem;
 }
-.faq dd { margin: 0; color: var(--muted); }
+.faq dt { color: var(--ivory); }
+.faq dd { margin: 0; }
 
 /* ---------- RSVP: the reply card ---------- */
 
@@ -344,7 +352,7 @@ a:hover { color: var(--gold-light); }
 .field span {
   display: block;
   margin-bottom: 0.35rem;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   color: var(--muted);
 }
 .field em { font-style: normal; opacity: 0.8; }
@@ -353,7 +361,7 @@ input, textarea {
   width: 100%;
   padding: 0.5rem 0;
   border: 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(184, 148, 90, 0.7);
   border-radius: 0;
   background: transparent;
   color: var(--text);
@@ -378,9 +386,21 @@ input:-webkit-autofill {
   font-variation-settings: "opsz" 24;
   font-size: 1.1875rem;
 }
-.choice label { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; }
-.choice input { width: 1.1rem; height: 1.1rem; margin: 0; accent-color: var(--gold); }
-.choice input:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.choice label { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; color: var(--ivory); }
+/* Gold-ringed radios; the browser's default grey ones disappear on green. */
+.choice input {
+  appearance: none;
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  padding: 0;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.choice input:checked { background: radial-gradient(var(--gold) 0 45%, transparent 50%); }
+.choice input:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
 
 .if-attending[hidden] { display: none; }
 
