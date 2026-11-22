@@ -226,7 +226,7 @@ a:hover { text-decoration-color: var(--wine); }
 @media (max-width: 900px) {
   .hero { --mound-w: clamp(200px, 52vw, 420px); padding-bottom: calc(var(--mound-w) * 0.7); }
   .date { gap: 0.75rem; }
-  .footer { --foot-w: clamp(170px, 46vw, 320px); }
+  footer.footer { --foot-w: clamp(170px, 46vw, 320px); }  /* beats the base .footer rule below */
 }
 
 /* ---------- Photo ---------- */
