@@ -1,6 +1,7 @@
 # Kevin & Rosie — wedding site
 
-Static one-page site with no build step. Hosted on GitHub Pages.
+Static one-page site with no build step. Hosted on GitHub Pages at **https://kevinandrosie.com**
+(domain registered at Porkbun; DNS points at GitHub; `CNAME` file in this repo; HTTPS enforced).
 
 - `index.html` — all content. Replace everything in `[brackets]`.
 - `styles.css` — colors and fonts are at the top in `:root`.
