@@ -7,42 +7,81 @@
   <meta name="description" content="The wedding of Kevin and Rosie.">
   <!-- Keeps the site out of search results; guests reach it from the link you send. -->
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#12302a">
-  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#96b0c8">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Jost:wght@300..600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/garland.webp">
   <!-- Bump ?v= on each change so browsers fetch the new file instead of a cached one. -->
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
   <a class="skip" href="#ceremony">Skip to details</a>
+  <canvas id="petals" aria-hidden="true"></canvas>
 
   <!--
     Fill in everything in [brackets]. Search the file for "[" to find them all.
   -->
 
-  <header class="hero">
-    <div class="frame">
-      <nav class="nav" aria-label="Sections">
-        <a href="#ceremony">Ceremony</a>
-        <a href="#schedule">Schedule</a>
-        <a href="#faq">FAQ</a>
-        <a href="#rsvp">RSVP</a>
-      </nav>
+  <!-- Shared fabric for the two drapes. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="silk" x1="0" x2="1">
+        <stop offset="0" stop-color="#e6d8bf"/>
+        <stop offset=".16" stop-color="#cdb792"/>
+        <stop offset=".3" stop-color="#efe5d2"/>
+        <stop offset=".46" stop-color="#d1bb96"/>
+        <stop offset=".62" stop-color="#ece1cc"/>
+        <stop offset=".8" stop-color="#d6c29f"/>
+        <stop offset="1" stop-color="#e8dcc6"/>
+      </linearGradient>
+      <filter id="wash" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7"/>
+        <feDisplacementMap in="SourceGraphic" scale="9"/>
+      </filter>
+      <symbol id="drape" viewBox="0 0 300 1000" preserveAspectRatio="none">
+        <g filter="url(#wash)">
+          <path d="M0,0 H285 C255,170 160,350 70,470 C90,600 115,780 82,1000 H0 Z" fill="url(#silk)" opacity=".93"/>
+          <g fill="none" stroke="#bfa47b" stroke-width="3" opacity=".45">
+            <path d="M60,0 C55,200 58,360 62,470"/>
+            <path d="M120,0 C110,190 85,350 66,470"/>
+            <path d="M185,0 C165,180 110,350 70,470"/>
+            <path d="M245,0 C215,170 135,350 72,472"/>
+            <path d="M62,480 C55,650 30,820 20,1000"/>
+            <path d="M68,480 C80,650 72,820 58,1000"/>
+          </g>
+          <path d="M38,462 C60,478 84,486 104,480" fill="none" stroke="#a88c62" stroke-width="9" stroke-linecap="round"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
 
-      <div class="invite">
-        <p class="kicker">Together with their families</p>
-        <h1 class="names">
-          <span>Kevin</span>
-          <span class="amp" aria-label="and">&amp;</span>
-          <span>Rosie</span>
-        </h1>
-        <p class="request">request the pleasure of your company<br>at the celebration of their marriage</p>
-        <p class="when">Tuesday, the twenty-second of December<br>two thousand twenty-six<br>at one o'clock in the afternoon</p>
-        <p class="where">The 14th Street Chapel · Riverside, California</p>
-        <a class="button" href="#rsvp">Reply by December 14</a>
-      </div>
+  <header class="hero">
+    <img class="garland" src="images/garland.webp" width="2400" height="557" alt="">
+    <svg class="drape drape-left" aria-hidden="true"><use href="#drape"/></svg>
+    <svg class="drape drape-right" aria-hidden="true"><use href="#drape"/></svg>
+    <img class="bouquet bouquet-left" src="images/bouquet.webp" width="1133" height="1108" alt="">
+    <img class="bouquet bouquet-right" src="images/bouquet.webp" width="1133" height="1108" alt="">
+
+    <div class="invite">
+      <p class="monogram" aria-hidden="true">K R</p>
+      <p class="ornament" aria-hidden="true"></p>
+      <p class="caps">You are invited to celebrate the wedding of</p>
+      <h1 class="names">Kevin <span class="amp" aria-label="and">&amp;</span> Rosie</h1>
+
+      <p class="date" aria-label="Tuesday, December 22, 2026">
+        <span class="date-side">December</span>
+        <span class="date-day">22</span>
+        <span class="date-side">2026</span>
+      </p>
+      <p class="caps">Tuesday</p>
+
+      <p class="caps lead-in">The ceremony will take place at</p>
+      <p class="venue">The 14th Street Chapel</p>
+      <p class="caps">Riverside, California</p>
+      <p class="caps">One o'clock in the afternoon</p>
+
+      <a class="button" href="#rsvp">RSVP by December 14</a>
     </div>
   </header>
 
@@ -53,7 +92,7 @@
     </figure>
 
     <section id="ceremony" class="section">
-      <h2 class="title">The ceremony</h2>
+      <h2 class="title">The Ceremony</h2>
       <div class="pair">
         <div>
           <h3 class="label">When</h3>
@@ -69,7 +108,7 @@
     </section>
 
     <section id="schedule" class="section">
-      <h2 class="title">Order of the day</h2>
+      <h2 class="title">Order of the Day</h2>
       <ol class="program">
         <li><span>Guests gather outside</span><time>12:45 pm</time></li>
         <li><span>Doors open &amp; ceremony</span><time>1:00 pm</time></li>
@@ -167,10 +206,13 @@
   </main>
 
   <footer class="footer">
-    <p class="monogram">K <span>&amp;</span> R</p>
-    <p class="label">12 · 22 · 2026</p>
+    <img class="bouquet bouquet-left" src="images/bouquet.webp" width="1133" height="1108" alt="" loading="lazy">
+    <img class="bouquet bouquet-right" src="images/bouquet.webp" width="1133" height="1108" alt="" loading="lazy">
+    <p class="monogram">K R</p>
+    <p class="caps">December 22, 2026</p>
   </footer>
 
-  <script src="rsvp.js?v=6"></script>
+  <script src="petals.js?v=7"></script>
+  <script src="rsvp.js?v=7"></script>
 </body>
 </html>
