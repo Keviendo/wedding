@@ -298,7 +298,7 @@ a:hover { text-decoration-color: var(--wine); }
 .section p { margin: 0 0 0.6rem; }
 /* Section text a step darker and heavier than the invitation, for easy reading on the sky. */
 .section { color: #1f1217; font-weight: 600; }
-.section .label { color: #2e1a23; }
+.section .label { color: var(--wine); }
 
 .pair {
   display: grid;
