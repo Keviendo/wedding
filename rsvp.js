@@ -5,6 +5,8 @@
   const attendingFields = form.querySelector(".if-attending");
   const status = form.querySelector(".status");
   const button = form.querySelector("button[type=submit]");
+  // Visitor-facing messages come from lang.js so they follow the English/Spanish switch.
+  const t = (key) => window.siteText(key);
 
   form.addEventListener("change", (e) => {
     if (e.target.name !== "attending") return;
@@ -21,7 +23,7 @@
     data.set("_subject", `RSVP: ${data.get("name")} ${declining ? "declines" : "accepts"}${count}`);
 
     button.disabled = true;
-    button.textContent = "Sending…";
+    button.textContent = t("sending");
     status.className = "status";
     status.textContent = "";
 
@@ -37,16 +39,12 @@
         throw new Error((body.errors || []).map((err) => err.message).join(" "));
       }
       form.classList.add("sent");
-      status.textContent = declining
-        ? "Thank you for letting us know. You'll be missed."
-        : "Thank you. We can't wait to celebrate with you.";
+      status.textContent = declining ? t("thanksNo") : t("thanksYes");
     } catch (err) {
       status.className = "status error";
-      status.textContent = err.message
-        ? `Your reply didn't send: ${err.message}`
-        : "Your reply didn't send. Check your connection and try again.";
+      status.textContent = err.message ? t("failedBecause") + err.message : t("failed");
       button.disabled = false;
-      button.textContent = "Send reply";
+      button.textContent = t("send");
     }
   });
 })();

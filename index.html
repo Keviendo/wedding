@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kevin &amp; Rosie</title>
+  <title data-i18n="title">Kevin &amp; Rosie</title>
   <meta name="description" content="The wedding of Kevin and Rosie.">
   <!-- Keeps the site out of search results; guests reach it from the link you send. -->
   <meta name="robots" content="noindex">
@@ -11,12 +11,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="images/corner.webp?v=20">
+  <link rel="preload" as="image" href="images/corner.webp?v=21">
   <!-- Bump ?v= on each change so browsers fetch the new file instead of a cached one. -->
-  <link rel="stylesheet" href="styles.css?v=20">
+  <link rel="stylesheet" href="styles.css?v=21">
 </head>
 <body>
-  <a class="skip" href="#ceremony">Skip to details</a>
+  <a class="skip" href="#ceremony" data-i18n="skip">Skip to details</a>
+  <button class="lang-toggle" type="button" lang="es" aria-label="Ver en español">Español</button>
   <canvas id="petals" aria-hidden="true"></canvas>
 
   <!-- Chiffon drapes: layered swags across the top, long panels down the sides. -->
@@ -98,164 +99,165 @@
     <svg class="panel panel-left" aria-hidden="true"><use href="#panel-left"/></svg>
     <svg class="panel panel-right" aria-hidden="true"><use href="#panel-left"/></svg>
     <svg class="swags" aria-hidden="true"><use href="#swags"/></svg>
-    <img class="corner corner-left" src="images/corner.webp?v=20" width="1400" height="1400" alt="">
-    <img class="corner corner-right" src="images/corner.webp?v=20" width="1400" height="1400" alt="">
-    <img class="center-flowers" src="images/center.webp?v=20" width="900" height="640" alt="">
-    <img class="mound mound-left" src="images/mound.webp?v=20" width="1500" height="1700" alt="">
-    <img class="mound mound-right" src="images/mound.webp?v=20" width="1500" height="1700" alt="">
+    <img class="corner corner-left" src="images/corner.webp?v=21" width="1400" height="1400" alt="">
+    <img class="corner corner-right" src="images/corner.webp?v=21" width="1400" height="1400" alt="">
+    <img class="center-flowers" src="images/center.webp?v=21" width="900" height="640" alt="">
+    <img class="mound mound-left" src="images/mound.webp?v=21" width="1500" height="1700" alt="">
+    <img class="mound mound-right" src="images/mound.webp?v=21" width="1500" height="1700" alt="">
 
     <div class="invite">
       <p class="monogram" aria-hidden="true">K R</p>
       <p class="ornament" aria-hidden="true"></p>
-      <p class="caps">You are invited to celebrate the wedding of</p>
-      <h1 class="names">Kevin <span class="amp" aria-label="and">&amp;</span> Rosie</h1>
+      <p class="caps" data-i18n="invited">You are invited to celebrate the wedding of</p>
+      <h1 class="names">Kevin <span class="amp" aria-label="and" data-i18n-attr="aria-label:and">&amp;</span> Rosie</h1>
 
-      <p class="date" aria-label="Tuesday, December 22, 2026">
-        <span class="date-side">December</span>
+      <p class="date" aria-label="Tuesday, December 22, 2026" data-i18n-attr="aria-label:dateFull">
+        <span class="date-side" data-i18n="month">December</span>
         <span class="date-day">22</span>
         <span class="date-side">2026</span>
       </p>
-      <p class="caps">Tuesday</p>
+      <p class="caps" data-i18n="weekday">Tuesday</p>
 
-      <p class="caps lead-in">The ceremony will take place at</p>
+      <p class="caps lead-in" data-i18n="leadIn">The ceremony will take place at</p>
       <p class="venue">The 14th Street Chapel</p>
       <p class="caps">Riverside, California</p>
-      <p class="caps">1 pm in the afternoon</p>
-      <p class="caps strict">Doors close at 1 pm · please arrive by 12:45</p>
+      <p class="caps" data-i18n="time">1 pm in the afternoon</p>
+      <p class="caps strict" data-i18n="strict">Doors close at 1 pm · please arrive by 12:45</p>
 
-      <a class="button" href="#rsvp">RSVP by December 7</a>
+      <a class="button" href="#rsvp" data-i18n="rsvpBy">RSVP by December 7</a>
     </div>
   </header>
 
   <main>
     <figure class="plate">
-      <img src="images/chapel-aisle.jpg?v=20" width="1920" height="1076"
+      <img src="images/chapel-aisle.jpg?v=21" width="1920" height="1076" data-i18n-attr="alt:photoAlt"
            alt="The 14th Street Chapel, Riverside: the center aisle between wooden pews tied with white bows, under timber trusses and a chandelier.">
     </figure>
 
     <section id="ceremony" class="section">
-      <h2 class="title">The Ceremony</h2>
+      <h2 class="title" data-i18n="tCeremony">The Ceremony</h2>
       <div class="pair">
         <div>
-          <h3 class="label">When</h3>
-          <p>Tuesday, December 22, 2026<br>1 pm in the afternoon</p>
-          <p class="note">The ceremony runs from 1:00 to 1:30 pm.</p>
+          <h3 class="label" data-i18n="when">When</h3>
+          <p data-i18n="whenText">Tuesday, December 22, 2026<br>1 pm in the afternoon</p>
+          <p class="note" data-i18n="runs">The ceremony runs from 1:00 to 1:30 pm.</p>
         </div>
         <div>
-          <h3 class="label">Where</h3>
+          <h3 class="label" data-i18n="where">Where</h3>
           <p>The 14th Street Chapel<br>3478 14th Street<br>Riverside, CA 92501</p>
-          <p><a href="https://www.google.com/maps/search/?api=1&amp;query=14th+Street+Chapel+3478+14th+St+Riverside+CA+92501">Get directions</a></p>
+          <p><a href="https://www.google.com/maps/search/?api=1&amp;query=14th+Street+Chapel+3478+14th+St+Riverside+CA+92501" data-i18n="directions">Get directions</a></p>
         </div>
       </div>
       <div class="notice" role="note">
-        <h3 class="label">Please arrive on time</h3>
-        <p>Our ceremony is strictly from <strong>1:00 to 1:30 pm</strong>. The chapel opens its doors at 1:00 pm, not before, and they stay closed once the ceremony begins. <strong>Guests who arrive after 1:00 pm will not be able to enter.</strong></p>
-        <p>Please plan to arrive by <strong>12:45 pm</strong> and wait outside the chapel.</p>
+        <h3 class="label" data-i18n="onTime">Please arrive on time</h3>
+        <p data-i18n="notice1">Our ceremony is strictly from <strong>1:00 to 1:30 pm</strong>. The chapel opens its doors at 1:00 pm, not before, and they stay closed once the ceremony begins. <strong>Guests who arrive after 1:00 pm will not be able to enter.</strong></p>
+        <p data-i18n="notice2">Please plan to arrive by <strong>12:45 pm</strong> and wait outside the chapel.</p>
       </div>
     </section>
 
     <section id="schedule" class="section">
-      <h2 class="title">Order of the Day</h2>
+      <h2 class="title" data-i18n="tSchedule">Order of the Day</h2>
       <ol class="program">
-        <li><span>Guests arrive &amp; gather outside</span><time>12:45 pm</time></li>
-        <li><span>Doors open · ceremony begins</span><time>1:00 pm</time></li>
-        <li><span>Ceremony ends · photos outside</span><time>1:30 pm</time></li>
+        <li><span data-i18n="s1">Guests arrive &amp; gather outside</span><time>12:45 pm</time></li>
+        <li><span data-i18n="s2">Doors open · ceremony begins</span><time>1:00 pm</time></li>
+        <li><span data-i18n="s3">Ceremony ends · photos outside</span><time>1:30 pm</time></li>
       </ol>
     </section>
 
     <section id="faq" class="section">
-      <h2 class="title">Questions</h2>
+      <h2 class="title" data-i18n="tFaq">Questions</h2>
       <dl class="faq">
         <div>
-          <dt>What should I wear?</dt>
-          <dd>Formal or semi-formal. Dresses, tuxedos, dress shirts, and button-ups are all fine.</dd>
+          <dt data-i18n="q1">What should I wear?</dt>
+          <dd data-i18n="a1">Formal or semi-formal. Dresses, tuxedos, dress shirts, and button-ups are all fine.</dd>
         </div>
         <div>
-          <dt>What if I'm running late?</dt>
-          <dd>Unfortunately, we won't be able to bring you in. The chapel opens its doors at 1:00 pm, and they stay closed until the ceremony ends at 1:30 pm. Please plan to arrive by 12:45 pm. You're welcome to join us for photos outside the chapel afterward.</dd>
+          <dt data-i18n="q2">What if I'm running late?</dt>
+          <dd data-i18n="a2">Unfortunately, we won't be able to bring you in. The chapel opens its doors at 1:00 pm, and they stay closed until the ceremony ends at 1:30 pm. Please plan to arrive by 12:45 pm. You're welcome to join us for photos outside the chapel afterward.</dd>
         </div>
         <div>
-          <dt>Is the ceremony indoors or outdoors?</dt>
-          <dd>Indoors, in the chapel. We'll take photos outside afterward, and December afternoons in Riverside can be cool, so bring a light jacket.</dd>
+          <dt data-i18n="q3">Is the ceremony indoors or outdoors?</dt>
+          <dd data-i18n="a3">Indoors, in the chapel. We'll take photos outside afterward, and December afternoons in Riverside can be cool, so bring a light jacket.</dd>
         </div>
         <div>
-          <dt>Why is it important to RSVP?</dt>
-          <dd>The chapel holds 40 guests, and that count includes children and photographers. Your reply helps us keep a seat for everyone.</dd>
+          <dt data-i18n="q4">Why is it important to RSVP?</dt>
+          <dd data-i18n="a4">The chapel holds 40 guests, and that count includes children and photographers. Your reply helps us keep a seat for everyone.</dd>
         </div>
         <div>
-          <dt>Can we throw petals or rice?</dt>
-          <dd>Not inside. The chapel doesn't allow anything to be thrown or dropped on the aisle.</dd>
+          <dt data-i18n="q5">Can we throw petals or rice?</dt>
+          <dd data-i18n="a5">Not inside. The chapel doesn't allow anything to be thrown or dropped on the aisle.</dd>
         </div>
         <div>
-          <dt>Can I take photos or video?</dt>
-          <dd>Photos are welcome during the ceremony. We kindly ask that you not record video, as we'd like our vows to remain a private moment. The chapel allows photos inside only during our ceremony time; outside, anytime. Other couples may be taking photos too, so please give them room.</dd>
+          <dt data-i18n="q6">Can I take photos or video?</dt>
+          <dd data-i18n="a6">Photos are welcome during the ceremony. We kindly ask that you not record video, as we'd like our vows to remain a private moment. The chapel allows photos inside only during our ceremony time; outside, anytime. Other couples may be taking photos too, so please give them room.</dd>
         </div>
         <div>
-          <dt>Are there restrooms?</dt>
-          <dd>There's a restroom inside the chapel. It's open only during our ceremony time.</dd>
+          <dt data-i18n="q7">Are there restrooms?</dt>
+          <dd data-i18n="a7">There's a restroom inside the chapel. It's open only during our ceremony time.</dd>
         </div>
         <div>
-          <dt>Can I bring a guest?</dt>
-          <dd>We're not able to include plus-ones. The chapel holds only 40 guests, so we're keeping it to the people named on your invitation.</dd>
+          <dt data-i18n="q8">Can I bring a guest?</dt>
+          <dd data-i18n="a8">We're not able to include plus-ones. The chapel holds only 40 guests, so we're keeping it to the people named on your invitation.</dd>
         </div>
       </dl>
     </section>
 
     <section id="rsvp" class="section">
-      <h2 class="title">RSVP</h2>
+      <h2 class="title" data-i18n="tRsvp">RSVP</h2>
       <!-- Replies go to Formspree (dashboard: formspree.io/forms/mkjrqoba). -->
       <form class="card" id="rsvp-form" action="https://formspree.io/f/mkjrqoba" method="POST">
-        <p class="card-head">The favour of a reply is requested<br>by the seventh of December</p>
+        <p class="card-head" data-i18n="cardHead">The favour of a reply is requested<br>by the seventh of December</p>
 
         <label class="field">
-          <span>Your name</span>
+          <span data-i18n="fName">Your name</span>
           <input name="name" autocomplete="name" required>
         </label>
 
         <label class="field">
-          <span>Email</span>
+          <span data-i18n="fEmail">Email</span>
           <input name="email" type="email" autocomplete="email" required>
         </label>
 
         <fieldset class="choice">
-          <legend class="sr-only">Will you attend?</legend>
-          <label><input type="radio" name="attending" value="Joyfully accepts" required> Joyfully accepts</label>
-          <label><input type="radio" name="attending" value="Regretfully declines"> Regretfully declines</label>
+          <legend class="sr-only" data-i18n="willAttend">Will you attend?</legend>
+          <label><input type="radio" name="attending" value="Joyfully accepts" required> <span data-i18n="accept">Joyfully accepts</span></label>
+          <label><input type="radio" name="attending" value="Regretfully declines"> <span data-i18n="decline">Regretfully declines</span></label>
         </fieldset>
 
         <div class="if-attending">
           <label class="field">
-            <span>Number attending, including you</span>
+            <span data-i18n="fCount">Number attending, including you</span>
             <input name="guests" type="number" min="1" max="6" value="1" inputmode="numeric">
           </label>
           <label class="field">
-            <span>Names of everyone attending</span>
+            <span data-i18n="fNames">Names of everyone attending</span>
             <input name="guest_names">
           </label>
         </div>
 
         <label class="field">
-          <span>A note for the couple <em>(optional)</em></span>
+          <span data-i18n="fNote">A note for the couple <em>(optional)</em></span>
           <textarea name="message" rows="3"></textarea>
         </label>
 
         <!-- Spam trap: hidden from people, filled in by bots. -->
         <input type="text" name="_gotcha" class="trap" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-        <button class="button solid" type="submit">Send reply</button>
+        <button class="button solid" type="submit" data-i18n="send">Send reply</button>
         <p class="status" role="status" aria-live="polite"></p>
       </form>
     </section>
   </main>
 
   <footer class="footer">
-    <img class="mound mound-left" src="images/mound.webp?v=20" width="1500" height="1700" alt="" loading="lazy">
-    <img class="mound mound-right" src="images/mound.webp?v=20" width="1500" height="1700" alt="" loading="lazy">
+    <img class="mound mound-left" src="images/mound.webp?v=21" width="1500" height="1700" alt="" loading="lazy">
+    <img class="mound mound-right" src="images/mound.webp?v=21" width="1500" height="1700" alt="" loading="lazy">
     <p class="monogram">K R</p>
-    <p class="caps">December 22, 2026</p>
+    <p class="caps" data-i18n="footDate">December 22, 2026</p>
   </footer>
 
-  <script src="petals.js?v=20"></script>
-  <script src="rsvp.js?v=20"></script>
+  <script src="petals.js?v=21"></script>
+  <script src="lang.js?v=21"></script>
+  <script src="rsvp.js?v=21"></script>
 </body>
 </html>

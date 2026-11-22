@@ -6,6 +6,9 @@ Static one-page site with no build step. Hosted on GitHub Pages at **https://kev
 - `index.html` — all content. Replace everything in `[brackets]`.
 - `styles.css` — colors and fonts are at the top in `:root`.
 - `rsvp.js` — sends RSVP replies to Formspree.
+- `lang.js` — English/Español switch (top-right button). Spanish text lives here, keyed by each
+  element's `data-i18n` name; when you change English wording in `index.html`, update the matching
+  Spanish entry too. `https://kevinandrosie.com/?lang=es` opens the site in Spanish.
 - `petals.js` — rose petals drifting down the page (off for visitors who turn off motion).
 
 When you change `styles.css` or a `.js` file, bump the `?v=` number where `index.html` loads it,

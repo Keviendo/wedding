@@ -58,6 +58,25 @@ a:hover { text-decoration-color: var(--wine); }
 }
 .skip:focus { top: 1rem; }
 
+/* English / Español switch: pinned to the top-right corner while scrolling. */
+.lang-toggle {
+  position: fixed;
+  z-index: 20;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.45rem 1rem 0.4rem;
+  border: 1px solid var(--wine);
+  border-radius: 999px;
+  background: rgba(241, 234, 222, 0.92);
+  color: var(--wine);
+  font: 700 0.875rem/1 var(--serif);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(60, 30, 40, 0.15);
+}
+.lang-toggle:hover { background: var(--wine); color: var(--cream); }
+
 /* Spaced small capitals, as on the printed invitation. */
 .caps, .label, .button, .program time, .field span {
   font-family: var(--serif);
