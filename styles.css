@@ -226,6 +226,7 @@ a:hover { text-decoration-color: var(--wine); }
 @media (max-width: 900px) {
   .hero { --mound-w: clamp(200px, 52vw, 420px); padding-bottom: calc(var(--mound-w) * 0.7); }
   .date { gap: 0.75rem; }
+  .footer { --foot-w: clamp(170px, 46vw, 320px); }
 }
 
 /* ---------- Photo ---------- */
@@ -388,12 +389,19 @@ input:focus, textarea:focus { outline: none; border-bottom-color: var(--wine); b
 
 /* ---------- Footer: the floor arrangements again ---------- */
 
+/* Footer height matches the visible part of the arrangements, so the monogram
+   sits between the flowers instead of floating above them. */
 .footer {
+  --foot-w: clamp(220px, 36vw, 560px);
   position: relative;
   overflow: hidden;
-  margin-top: clamp(4rem, 10vw, 7rem);
-  padding: 2rem 1.5rem clamp(10rem, 22vw, 18rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(var(--foot-w) * 0.6);
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.5rem 3rem;
   text-align: center;
 }
-.footer p { margin: 0; position: relative; z-index: 3; }
-.footer .mound { width: clamp(200px, 32vw, 460px); bottom: calc(clamp(200px, 32vw, 460px) * -0.3); }
+.footer p { margin: 0; position: relative; z-index: 4; }
+.footer .mound { width: var(--foot-w); bottom: calc(var(--foot-w) * -0.36); }
