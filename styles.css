@@ -307,6 +307,14 @@ a:hover { text-decoration-color: var(--wine); }
   text-align: center;
 }
 
+/* Reception: one centered line under When / Where. */
+.welcome { max-width: 32rem; margin: 2rem auto 0 !important; text-align: center; font-style: italic; }
+
+/* RSVP: reception questions set off under their own small heading. */
+.reception-fields { margin: 1.75rem 0 0.25rem; padding-top: 1.25rem; border-top: 1px solid var(--wine-soft); }
+.reception-fields .label { margin-bottom: 0.9rem; color: var(--wine); }
+.card.sent .reception-fields { display: none; }
+
 /* Arrival notice: the one hard rule of the day, set apart in a framed card. */
 .notice {
   max-width: 34rem;
