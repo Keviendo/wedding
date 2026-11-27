@@ -30,7 +30,7 @@
 
     tFaq: "Preguntas",
     q1: "¿Cómo debo vestirme?",
-    a1: "Formal o semiformal. Vestidos, esmóquines, camisas de vestir y camisas con botones son perfectamente adecuados.",
+    a1: "Formal o semiformal. Vestidos, esmóquines, camisas de vestir y camisas con botones son perfectamente adecuados. Les pedimos amablemente <strong>no vestir de blanco ni de amarillo</strong>.",
     q2: "¿Qué pasa si llego tarde?",
     a2: "Lamentablemente, no podremos dejarle entrar. La capilla abre sus puertas a la 1:00 pm y permanecen cerradas hasta que termina la ceremonia a la 1:30 pm. Por favor planee llegar a más tardar a las 12:45 pm. Con gusto puede acompañarnos después para las fotos afuera de la capilla.",
     q3: "¿La ceremonia es en interior o al aire libre?",
