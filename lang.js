@@ -65,7 +65,6 @@
     recLabel: "Recepción · 2:30 pm",
     fRecParty: "¿Cuántas personas de su grupo asistirán a la recepción?",
     fRecExtra: "¿Cuántos invitados adicionales traerá a la recepción?",
-    fNote: "Una nota para los novios <em>(opcional)</em>",
     send: "Enviar respuesta",
     footDate: "22 de diciembre de 2026",
 

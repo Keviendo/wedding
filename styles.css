@@ -311,7 +311,7 @@ a:hover { text-decoration-color: var(--wine); }
 .welcome { max-width: 32rem; margin: 2rem auto 0 !important; text-align: center; font-style: italic; }
 
 /* RSVP: reception questions set off under their own small heading. */
-.reception-fields { margin: 1.75rem 0 0.25rem; padding-top: 1.25rem; border-top: 1px solid var(--wine-soft); }
+.reception-fields { margin: 2rem 0 0.25rem; }
 .reception-fields .label { margin-bottom: 0.9rem; color: var(--wine); }
 .card.sent .reception-fields { display: none; }
 
